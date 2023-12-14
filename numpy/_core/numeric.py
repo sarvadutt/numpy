@@ -1862,9 +1862,10 @@ def fromfunction(function, shape, *, dtype=float, like=None, **kwargs):
            [1, 2, 3],
            [2, 3, 4]])
 
-    >>> def my_func(i, j):
+    >>> def f(i, j):
     >>>    return i + j
-    >>> np.fromfunction(np.vectorize(my_func), (3, 3), dtype=float)
+    >>> idx = np.arange(3)
+    >>> f(idx[:, np.newaxis], idx[np.newaxis, :])
     array([[0., 1., 2.],
         [1., 2., 3.],
         [2., 3., 4.]])
